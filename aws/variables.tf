@@ -30,12 +30,12 @@ variable "aws_vpc_cidr_block" {
   default     = "10.0.0.0/16"
 }
 
-variable "aws_subnet_public_cidr" {
+variable "aws_subnet_public_cidr_block" {
   description = "CIDR for public subnet"
   default     = "10.0.0.0/22"
 }
 
-variable "aws_subnet_private_cidr" {
+variable "aws_subnet_private_cidr_block" {
   description = "CIDR for private subnet"
   default     = "10.0.4.0/22"
 }

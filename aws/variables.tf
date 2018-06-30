@@ -25,6 +25,21 @@ variable "aws_profile" {
   default     = "default"
 }
 
+variable "aws_vpc_cidr_block" {
+  description = "CIDR for VPC"
+  default     = "10.0.0.0/16"
+}
+
+variable "aws_subnet_public_cidr_block" {
+  description = "CIDR for public subnet"
+  default     = "10.0.0.0/22"
+}
+
+variable "aws_subnet_private_cidr_block" {
+  description = "CIDR for private subnet"
+  default     = "10.0.4.0/22"
+}
+
 variable "admin_cidr" {
   description = "Inbound Master Access"
   default     = "0.0.0.0/0"

@@ -16,7 +16,7 @@ data "external" "whoami" {
 
 # Create a VPC to launch our instances into
 resource "aws_vpc" "default" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "${var.aws_vpc_cidr_block}"
   enable_dns_hostnames = "true"
 
 tags {
@@ -70,14 +70,14 @@ resource "aws_route" "internet_access" {
 # Create a subnet to launch public nodes into
 resource "aws_subnet" "public" {
   vpc_id                  = "${aws_vpc.default.id}"
-  cidr_block              = "10.0.0.0/22"
+  cidr_block              = "${var.aws_subnet_public_cidr_block}"
   map_public_ip_on_launch = true
 }
 
 # Create a subnet to launch slave private node into
 resource "aws_subnet" "private" {
   vpc_id                  = "${aws_vpc.default.id}"
-  cidr_block              = "10.0.4.0/22"
+  cidr_block              = "${var.aws_subnet_private_cidr_block}"
   map_public_ip_on_launch = true
 }
 
